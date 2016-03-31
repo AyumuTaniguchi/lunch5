@@ -1,0 +1,61 @@
+<% @shops['rest'].present? && @shops['rest'].each do |shop| %>
+<% image = shop['image_url']['shop_image1'] %>
+<div class="main">
+  <section>
+    <div class="main-image">
+      <% if  image.empty? %>
+        <img src="/assets/no_image.png" height="270" width="270" style="border: solid gray 1px;" data-toggle="modal" data-target="#<%= shop['id'] %>">
+      <% else %>
+        <img src= <%= image %> width="270" height="270" data-toggle="modal" data-target="#<%= shop['id'] %>">
+      <% end %>
+    </div>
+    <div class="modal fade" id="<%= shop['id'] %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <% if  image.empty? %>
+              <img src="/assets/no_image.png" height="270" width="270" style="border: solid gray 1px;">
+            <% else %>
+              <img src= <%= image %> width="270" height="270">
+            <% end %>
+            <h2>店舗名:<%= shop['name'] %></h2>
+            <p><b>住所</b>:<%= shop['address'] %></p>
+            <p><b>TEL</b>:<%= shop['tel'] %></p>
+            <% if shop['opentime'].empty? %>
+              <p><b>営業時間</b>:--</p>
+            <% else %>
+              <p><b>営業時間</b>:<%= shop['opentime'] %></p>
+            <% end %>
+            <% if shop['coupon_url']['mobile'].empty? %>
+              <p><b>クーポン</b>:--</p>
+            <% else %>
+              <p><b>クーポン</b>:<%= link_to "#{shop['coupon_url']['mobile']}","#{shop['coupon_url']['mobile']}" %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-text">
+      <h2>店舗名:<%= shop['name'] %></h2>
+      <% if shop['lunch'].empty? %>
+        <p><b>ランチ営業</b>:なし</p>
+        <p><b>ランチ平均予算</b>:--円</p>
+      <% else %>
+        <p><b>ランチ営業</b>:あり</p>
+        <p><b>ランチ平均予算</b>:<%= shop['lunch'] %>円</p>
+      <% end %>
+      <% if shop['lunch'].empty? %>
+        <p><b>徒歩</b>:--分</p>
+      <% else %>
+        <p><b>徒歩</b>:<%= shop['access']['walk'] %>分</p>
+      <% end %>
+      <p><b>住所</b>:<%= shop['address'] %></p>
+   </div>
+  </section>
+</div>
+
+<% end %>

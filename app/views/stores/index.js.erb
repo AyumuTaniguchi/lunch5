@@ -1,0 +1,11 @@
+var _html = (function () {/*
+  <%= render 'index' %>
+*/}).toString().replace(/(\n)/g, '').split('*')[1];
+
+$("#shops").append(_html);
+
+if ("<%= @shops['rest'] %>" === "") {
+  $("#more-read").hide();
+} else {
+  $("#more-read").css('display', 'block')
+};

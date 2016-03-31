@@ -1,2 +1,32 @@
-<h1>Stores#index</h1>
-<p>Find me in app/views/stores/index.html.erb</p>
+  <div class="header">
+      <div class="header-left">
+        Lunch5
+      </div>
+      <div class="header-right">
+        <div id="header-right-select">
+          <select id="range" class="form-control" >
+            <option value="1">300m</option>
+            <option value="2">500m</option>
+            <option value="3">1000m</option>
+            <option value="4">2000m</option>
+            <option value="5">3000m</option>
+          </select>
+          <input type="hidden" name="range" id="range_hidden">
+        </div>
+        <%= submit_tag '検索', id: 'search', class: "btn primary-btn header-right-search" %>
+      </div>
+  </div>
+
+  <div id="shops">
+    <div class="centering">読み込み中です。しばらくお待ち下さい。</div>
+  </div>
+
+<div class="more-button">
+  <%= button_tag 'もっと読む', id: 'more-read', class: "btn center-block primary-btn" %>
+</div>
+  <%= form_tag stores_path, id: 'search-form', method: :get, remote: true do %>
+    <%= hidden_field_tag 'stores[latitude]' %>
+    <%= hidden_field_tag 'stores[longitude]' %>
+    <%= hidden_field_tag 'stores[page]', 0 %>
+    <%= hidden_field_tag 'stores[range]' %>
+  <% end %>

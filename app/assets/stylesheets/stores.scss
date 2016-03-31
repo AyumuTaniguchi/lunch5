@@ -1,3 +1,88 @@
-// Place all the styles related to the stores controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$HEADER-COLOR: rgba(34, 49, 52, 0.9);
+
+.primary-btn {
+  background-color: #239b76;
+}
+
+.title {
+  height: 65px;
+  width: 100%;
+  background-color: $HEADER-COLOR;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  float: left;
+  font-size: 2.0em;
+  font-weight: bold;
+  padding-left:100px;
+}
+.header{
+  position: fixed !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background-color: $HEADER-COLOR;
+    color: #fff
+}
+
+.header-right{
+  float: right;
+  padding-right: 100px;
+
+}
+
+#header-right-select{
+  float:left;
+}
+.header-right-search{
+  float:left;
+  margin-left:20px;
+}
+
+#shops {
+  display: table;
+
+  .centering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 20px;
+    text-align: center;
+  }
+}
+
+#more-read {
+  display: none;
+}
+
+.main{
+  width:100%;
+  float:left;
+  padding:50px
+}
+
+.main-image{
+  float:left;
+  margin:0;
+  padding-right:15px;
+  border:0;
+}
+
+.main-text{
+  float:left;
+}
+
+.more-button{
+  color: #fff
+}
